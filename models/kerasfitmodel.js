@@ -3,14 +3,17 @@ const kerasfitSchema = new mongoose.Schema({
     experimentID : {
         type: String
     },
+    remoteId:{
+        type: String
+    },
     projectName:{
         type: String
     },
     x :{
-        type: [String],
+        type: String,
     },
     y :{
-        type: [String],
+        type: String,
     },
     batch_size :{
         type: String
@@ -45,7 +48,7 @@ const kerasfitSchema = new mongoose.Schema({
     validation_steps :{
         type:  String
     },
-});
+},{strict:false});
 
 const kerasfitmodel = mongoose.model('kerasfitmodel', kerasfitSchema);
 module.exports = kerasfitmodel;
