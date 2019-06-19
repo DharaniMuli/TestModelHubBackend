@@ -53,4 +53,27 @@ kerasfitRoute.get('/getParams/:expID', function (req, res, next) {
     }
 });
 
+
+// Method for Getting Experiment with experiment ID
+kerasfitRoute.get('/getallexperiments', function(req,res,next){
+
+    try{
+        kerasfitmodel.find({},function (err, data) {
+            if (err){
+                console.log(err);
+            }
+            else {
+                console.log(JSON.stringify(data));
+                res.json(data);
+
+            }
+        }).lean().exec();
+
+    }
+    catch{
+        console.log("Error")
+    }
+
+});
+
 module.exports = kerasfitRoute;
