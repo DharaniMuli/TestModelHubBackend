@@ -24,7 +24,7 @@ kerasfitRoute.post('/', function (req, res, next) {
 // Method for Getting Experiment with experiment ID
 kerasfitRoute.get('/getParams/:expID', function (req, res, next) {
     try{
-        kerasfitmodel.findOne({"experiment_id": req.params.expID}, function (err, data) {
+        kerasfitmodel.findOne({"experiment_id": req.params.expID},{'_id':0}, function (err, data) {
             console.log(data);
             if (err){
                 console.log(err);
