@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5e1608a-e110-44d0-85ce-b80191cdb2a1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/db.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/kerasfit.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/kerasfit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/uploadMongo.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/uploadMongo.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/kerasfit.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="91" column="8" lean-forward="true" selection-start-line="91" selection-start-column="8" selection-end-line="91" selection-end-column="8" />
+            <state relative-caret-position="969">
+              <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
               <folding>
                 <element signature="e#252#767#0" />
               </folding>
@@ -209,12 +206,12 @@
       <workItem from="1560914615350" duration="588000" />
       <workItem from="1561050641136" duration="4936000" />
       <workItem from="1561504262956" duration="299000" />
-      <workItem from="1561504908052" duration="50514000" />
+      <workItem from="1561504908052" duration="50755000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81306000" />
+    <option name="totallyTimeSpent" value="81547000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -387,8 +384,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/kerasfit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="91" column="8" lean-forward="true" selection-start-line="91" selection-start-column="8" selection-end-line="91" selection-end-column="8" />
+        <state relative-caret-position="969">
+          <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
           <folding>
             <element signature="e#252#767#0" />
           </folding>

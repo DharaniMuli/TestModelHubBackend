@@ -109,15 +109,15 @@ kerasfitRoute.get('/getExperimentbyID/:expID', function (req, res, next) {
             // console.log(data.fileIDs);
             // console.log(data);
             // res.json(data.fileIDs);;
-            // if (err || data==null){
-            //     // console.log(err);
-            //     // console.log("Experiment doesn't exists");
-            //     res.status(204).json({message: 'Result:Experiment doesn\'t exists' });
-            // }
-            // else {
+            if (err || data==null){
+                // console.log(err);
+                // console.log("Experiment doesn't exists");
+                res.status(204).json({message: 'Result:Experiment doesn\'t exists' });
+            }
+            else {
                 var fileURLs = null;
-                var fileIDs=[];
-                fileIDs= result.fileIDs;
+                var fileIDs = [];
+                fileIDs = result.fileIDs;
                 // console.log(fileIDs);
                 var conn = mongoose.connection;
                 var gfs = Grid(conn.db, mongoose.mongo);
@@ -125,48 +125,36 @@ kerasfitRoute.get('/getExperimentbyID/:expID', function (req, res, next) {
                 var types = mongoose.Types;
                 var innerCount = 0;
                 // console.log(innerCount);
-                for(let i = 0; i < fileIDs.length; i++)
-                {
+                for (let i = 0; i < fileIDs.length; i++) {
                     console.log(innerCount);
-                        gfs.files.findOne({_id: types.ObjectId(fileIDs[i] )}, (err, file) => {
+                    gfs.files.findOne({_id: types.ObjectId(fileIDs[i])}, (err, file) => {
+                        // console.log(innerCount)
+                        // console.log(fileIDs.length)
+                        if (file.filename.match(/\S.log/g)) {
+                            result["logfile"] = 'http://localhost:4000/kerasfitparameters/chunks/' + file._id;
+                        } else if (file.filename.match(/\S.hdf5/g)) {
+                            result["h5"] = 'http://localhost:4000/kerasfitparameters/chunks/' + file._id
+                        } else if (file.filename.match(/\S.jpeg|\S.jpg|\S.png/g)) {
+                            result["architecture"] = 'http://localhost:4000/kerasfitparameters/chunks/' + file._id
+                        } else if (file.filename.match(/\S.py/g)) {
+                            result["predict"] = 'http://localhost:4000/kerasfitparameters/chunks/' + file._id
+                        } else {
+
+                        }
+
+
+                        if (innerCount == fileIDs.length - 1) {
                             // console.log(innerCount)
                             // console.log(fileIDs.length)
-                            if(file.filename.match( /\S.log/g)){
-                                result["logfile"] = 'http://localhost:4000/kerasfitparameters/chunks/'+file._id;
-                            }
-                            else if(file.filename.match( /\S.hdf5/g)){
-                                result["h5"] = 'http://localhost:4000/kerasfitparameters/chunks/'+file._id
-                            }
-                            else if(file.filename.match( /\S.jpeg|\S.jpg|\S.png/g)){
-                                result["architecture"] = 'http://localhost:4000/kerasfitparameters/chunks/'+file._id
-                            }
-                            else if(file.filename.match( /\S.py/g)){
-                                result["predict"] = 'http://localhost:4000/kerasfitparameters/chunks/'+ file._id
-                            }
-                            else{
+                            complete();
+                        }
+                        innerCount++;
 
-                            }
-
-
-                            if(innerCount == fileIDs.length-1){
-                                // console.log(innerCount)
-                                // console.log(fileIDs.length)
-                                complete();
-                            }
-                            innerCount++;
-
-                        });
+                    });
 
 
                 }
-                // console.log(innerCount)
-                // console.log(fileIDs.length)
-                // if(innerCount == fileIDs.length-1){
-                //     // console.log(innerCount)
-                //     // console.log(fileIDs.length)
-                //     complete();
-                // }
-            // }
+            }
 
         });
             //.lean().exec();
