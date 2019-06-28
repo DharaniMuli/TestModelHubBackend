@@ -143,6 +143,8 @@ router.get('/files/:fileReferenceID', function(req, res, next){
   });
 });
 
+// Get File chunks  by Filename
+
 router.get('/chunks/:fileName', function(req, res, next){
   console.log(req.params)
   console.log("inside routes for fileID")
@@ -160,7 +162,6 @@ router.get('/chunks/:fileName', function(req, res, next){
         err: 'No file exists'
       });
     }
-
     // If the file exists then check whether it is an image
     // if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
     // Read output to browser
