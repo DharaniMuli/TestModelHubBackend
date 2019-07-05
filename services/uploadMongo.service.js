@@ -5,8 +5,8 @@ var Grid = require('gridfs-stream');
 require('../resources/db');
 
 let storage = GridFsStorage({
-  url: 'mongodb+srv://naveena:naveena@cluster0-6rknx.mongodb.net/viprahub?retryWrites=true',
-  // url: 'mongodb://localhost:27017/viprahub',
+  // url: 'mongodb+srv://naveena:naveena@cluster0-6rknx.mongodb.net/viprahub?retryWrites=true',
+  url: 'mongodb://localhost:27017/viprahub',
   file: function(req, file) {
 
     return new Promise((resolve, reject) => {
