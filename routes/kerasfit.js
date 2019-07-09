@@ -208,7 +208,7 @@ kerasfitRoute.get('/chunks/:fileid', function(req, res, next){
 });
 
 
-// Method to push experiment details from local to remoe db-In progress
+// Method to push experiment details from local to remote db-In progress
 
 kerasfitRoute.get('/pushtoRemoteDB/:expID', function (req, res, next) {
     try{
@@ -257,6 +257,10 @@ kerasfitRoute.get('/pushtoRemoteDB/:expID', function (req, res, next) {
                         } else if (file.filename.match(/\S.hdf5/g)) {
                             result["h5"] = 'http://localhost:4000/kerasfitparameters/chunks/' + file._id
                         } else if (file.filename.match(/\S.jpeg|\S.jpg|\S.png/g)) {
+                            result["architecture"] = 'http://localhost:4000/kerasfitparameters/chunks/' + file._id
+                        }else if (file.filename.match(/\S_loss.jpeg|\S_loss.jpg|\S_loss.png/g)) {
+                            result["architecture"] = 'http://localhost:4000/kerasfitparameters/chunks/' + file._id
+                        }else if (file.filename.match(/\S_accuracy.jpeg|\S_accuracy.jpg|\S_accuracy.png/g)) {
                             result["architecture"] = 'http://localhost:4000/kerasfitparameters/chunks/' + file._id
                         } else if (file.filename.match(/\S.py/g)) {
                             result["predict"] = 'http://localhost:4000/kerasfitparameters/chunks/' + file._id
