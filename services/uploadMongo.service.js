@@ -5,10 +5,10 @@ var Grid = require('gridfs-stream');
 require('../resources/db');
 
 let storage = GridFsStorage({
-  url: 'mongodb+srv://naveena:naveena@cluster0-6rknx.mongodb.net/viprahub?retryWrites=true',
+  // url: 'mongodb+srv://naveena:naveena@cluster0-6rknx.mongodb.net/viprahub?retryWrites=true',
   // url: 'mongodb+srv://Dharani:OmSaiRam@246@cluster0-yfvvs.mongodb.net/modelhub?retryWrites=true&w=majority',
 
-// url: 'mongodb://localhost:27017/modelhub',
+url: 'mongodb://localhost:27017/viprahub',
   file: function(req, file) {
 
     return new Promise((resolve, reject) => {

@@ -19,6 +19,7 @@ const ratingRoute = require('./routes/rating')
 /*ModelHub backend*/
 const kerasfitRoute = require('./routes/kerasfit')
 const projectRoute = require('./routes/projects')
+const statisticsRoute = require('./routes/statistics')
 
 
 app.use(express.json());
@@ -52,6 +53,7 @@ app.use('/ratings', ratingRoute);
 /*ModelHub backend*/
 app.use('/kerasfitparameters', kerasfitRoute);
 app.use('/project', projectRoute);
+app.use('/stats', statisticsRoute);
 
 var port = process.env.PORT || 4000;
 app.set('port', port);
