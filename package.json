@@ -12,10 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "archiver": "^3.0.0",
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.1",
     "busboy": "^0.3.1",
     "cors": "^2.8.5",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "express-easy-zip": "^1.1.4",
     "express-zip": "^2.0.1",
     "gridfs-stream": "1.1.1",
